@@ -32,3 +32,8 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Env
+*.env
+
+# http://localhost:5010/reset-password/?token=whateveryourtoken
