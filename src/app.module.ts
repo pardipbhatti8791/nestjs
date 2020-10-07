@@ -8,6 +8,7 @@ import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import * as Joi from '@hapi/joi';
 import { APP_PIPE } from '@nestjs/core';
 import { CommonModule } from './common/common.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { CommonModule } from './common/common.module';
     }),
     CoffeeRatingModule,
     CommonModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [AppService, {

@@ -16,13 +16,15 @@ import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
 
   constructor(private readonly coffeeService: CoffeesService) {}
 
+  @ApiForbiddenResponse({ description: 'Forbidden' })
   @SetMetadata('isPublic', true)
   @UsePipes(new ValidationPipe())
   @Get('flavors')
@@ -35,6 +37,7 @@ export class CoffeesController {
     return this.coffeeService.findOne(id)
   }
 
+  @SetMetadata('isPublic', true)
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     return this.coffeeService.create(createCoffeeDto)
