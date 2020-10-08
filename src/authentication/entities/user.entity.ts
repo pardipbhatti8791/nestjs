@@ -18,8 +18,8 @@ export class User {
   @Column()
   password: string
 
-  @Column()
-  isActive: boolean
+  @Column({ default: 0 })
+  isActive: number
 
   @OneToOne(type => Roles, roles => roles)
   @JoinColumn()
